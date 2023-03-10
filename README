@@ -1,0 +1,44 @@
+Suiu Ana-Maria 
+322CC
+
+Problema 2
+
+Enemies este vectorul cu noduri inamice, adj e vectorul de muchii.
+In minim_times: calculam unde trebuie sa punem fiecare fortificatie.
+La fiecare pas calculam distantele minime intre nodul sursa si inamicii ca sa 
+stim care este cea mai mica distanta pe care trebuie sa o compromitem punand 
+fortificatie. Sortam distances crescator in functie de distante, iar primul element
+din vector reprezinta inamicul catre care este cea mai mica distanta. Cautam muchia
+pe care trebuie sa punem fortificatie. Cand am gasit-o crestem weightul dintre inamic
+si parintele sau si invers. La final, dupa ce am pus toate fortificatiile sortam
+crescator distantele pentru a o putea afla pe cea mai mica.
+In functia get_result: am calculat distantele minime de la nodul sursa la fiecare nod
+existent si am extras distantele valide care dus la enemies si unde putem pune 
+fortificatie(intre doi enemies nu putem pune fortificatie). Pentru a calcula distantele
+am folosind algoritmul lui Dijkstra din laborator.
+
+Problema 4
+
+Citim antrenamentele sub forma de matrice cu a nr de linii si n nr de coloane.
+Pentru prima coloana adaugam in vectorul de muchii(adj) cate o muchie de la
+fiecare masina catre masina adiacenta. Pentru a doua coloana testam daca nodurile
+muchiilor adiacente de pe coloana 1 sunt egale, daca da, cream muchie intre
+masinile de pe coloana 2,corespunzatoare liniilor adiacente de pe coloana 1. 
+De asemeana, adaugam sub forma de pair nodurile adiacente egale de pe coloana 1 
+in vectorul v. 
+Luam un for de la prima coloana pana la antepenultima pentru a putea compara 
+coloanele 2 cate 2. Trecem prin vectorul de perechi ca sa putem 
+sa luam indicii nodurilor adiacente egale. Pentru fiecare pereche verificam daca 
+si elementele corespunzatoare indiciilor de pe coloana urmatoare sunt egale. Daca 
+da, cream muchie de la elementele corespunzatoare acestor indicii de pe coloana 
+urmatoare dupa cele 2 coloane(pe coloana j avem pereche, pe coloana j + 1 avem 
+egalitate => pe coloana j + 2 avem muchie). Adaugam perechea aceasta de linii 
+intr-un nou vector de perechi pentru a putea extrage indicii liniilor 
+corespunzatoare masinilor egale si adiacente de pe fiecare coloana. Acest vector
+devine noul nostru vector de perechi. Facem o sortare topologica pentru nodurile 
+de la 1 la m(masinile) si muchiile din adj pentru a putea afla ordinea de performanta 
+a masinilor. Algoritmul de sortare topologica l-am luat din laborator.
+Probleme intalnite: Nu mi s-a parut destul de clar explicat enuntul. Nu este specificat
+ca pentru a putea testa egalitatea intre 2 masini de pe coloana acestea trebuie sa
+fie adicente, intrucat eu initial am comparat fiecare masina cu fiecare de pe aceeasi
+pista.
